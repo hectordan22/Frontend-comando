@@ -23,32 +23,26 @@ function addTicket(e){
  * Evento cuando se seleccionan los tickets y se quiere comprar
  */
 buyTicket.addEventListener('click', () =>{
-  // Se obtiene el numero de Afiliados 
+  // Se obtiene el numero de Afiliado
   const queryStrings = window.location.search;
-  //Creamos la instancia
+  //Creamos la instancia para los query strings
   const urlParams = new URLSearchParams(queryStrings);
+
   const afiliate = urlParams.get('afiliate')
   console.log(afiliate)
+
   // convert object to string using JSON.stringify()
-  const stringifyObj = JSON.stringify(ticketsSelection)
+  const ticketsJson = JSON.stringify(ticketsSelection)
   // convert string to base64
   
-  const b64Str = btoa(stringifyObj)
+  const tickets = btoa(ticketsJson)
 
-  const url = `http://localhost:3000/api/coindraw/comprar?tickets=${b64Str}&afiliate=${afiliate}`
-  
-  console.log(b64Str)
+  const url = `http://localhost:3000/api/coindraw/comprar?tickets=${tickets}&afiliate=${afiliate}`
+  console.log(url)
+ 
 
-  window.location.href = url
-  // convert base64 to original form
+ // window.location.href = url
   
- /*  const objStr = atob(b64Str)
-  console.log(objStr) */
-  
-  //  parse objStr to object
-  
-  /* const obj = JSON.parse(objStr)
-  console.log(obj) */
 })
 
 
