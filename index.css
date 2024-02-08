@@ -1,0 +1,143 @@
+*{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgba(24, 31, 37, 0.742);
+    color: rgb(255, 242, 199);
+    font-family: monospace;
+    font-size: 17px;
+}
+
+.container_form{
+    width: 50%;
+    margin: auto;
+    position: relative;
+    top: 3em;
+}
+
+#text_link{
+    margin-top: 7em;
+    margin-left: 20%;
+}
+
+h1{
+    text-align: center;
+}
+
+.buy_button{
+    padding: 8px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(32, 32, 113);
+    border: none;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn-generate-link{
+    padding: 8px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(32, 32, 113);
+    border: none;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+.menu{
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+.title-index{
+    margin-top: 3em;
+}
+
+.container-notavailable{
+    margin: auto;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 3em;
+}
+
+
+
+.ticket-active{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: #f6f1f1; 
+    color: black;
+    cursor: pointer;
+}
+
+.ticket-inactive{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: #1c1b1b61; 
+    color: #fff;
+}
+
+.ticket-active:hover{
+    font-weight: 600;
+    font-size: 20px;
+    padding: 1px;
+    background-color: #f6f1f1d8; 
+}
+
+.item-ticket{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.container-monitor{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  
+}
+
+.title-monitor{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+   
+}
+
+.data-monitor{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+   margin-top: 10px;
+}
+
+#price-monitor{
+    font-size: 20px;
+}

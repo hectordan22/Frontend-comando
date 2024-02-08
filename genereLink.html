@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h1>Genera tu enlace</h1>
+   <h3>Recuerda que solo puedes generar un enlace por cada compra de boleto que realices.</h3>
+   <h4>El enlace que se te genera es unico y este es valido hasta el dia que se realice el Sorteo</h4>
+   <h4>Puedes compartirlo donde Quieras y con quien desees. Recuerda que por cada 10 personas que compren con tu enlace te ¡ GANAS un Boleto GRATIS !</h4>
+
+    <div class="container_form">
+        <label for="boleto">Ingrese el numero de su Boleto</label>
+        <input id="boleto" type="text" placeholder="Nro de Bolero">
+        <Button id="btn_genere_link" class="btn-generate-link" type="button">Obtener Mi enlace</Button>
+    </div>
+    
+    <h3 id="text_link"></h3>
+
+    <a href="http://localhost:3000/api/coindraw/comprar" class="buy_button">Comprar Boleto</a>
+    <script src="./js/genereLink.js"></script>
+</body>
+</html>

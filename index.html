@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteos</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="loader.css">
+</head>
+
+<body>
+    <div class="container-loader" id="container-loader">
+        <h3>Cargando Info...</h3><br>
+        <div class="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+   
+    <h1 class="title-index">El Comando de Los Premios</h1>
+    <div class="container-monitor">
+
+        <h3 class="title-monitor">Dolar Monitor:</h3>
+
+        <div class="data-monitor">
+            <lable class="th-monitor">Precio</lable>
+            <p class="value-monitor" id="price-monitor"></p>
+        </div>
+
+        <div class="data-monitor">
+            <lable class="th-monitor">Fecha</lable>
+            <p class="value-monitor" id="date-monitor"></p>
+        </div>
+
+        <div class="data-monitor">
+            <lable class="th-monitor">Hora</lable>
+            <p class="value-monitor" id="hour-monitor"></p>
+        </div>
+
+    </div>
+
+    <div class="menu">
+        <a class="buy_button" href="./genereLink.html">Generar mi enlace</a>
+        <a class="buy_button" href="./selectTicket.html">Comprar Boleto</a>
+    </div>
+    <script src="./js/monitor.js"></script>
+</body>
+
+</html>
