@@ -37,14 +37,14 @@ buyTicket.addEventListener('click', () => {
   // convert string to base64
 
   const tickets = btoa(ticketsJson)
+ 
   let url = ''
   if (afiliate != null) {
     url = `http://localhost:3000/api/coindraw/comprar?tickets=${tickets}&afiliate=${afiliate}`
   } else {
     url = `http://localhost:3000/api/coindraw/comprar?tickets=${tickets}`
   }
-  console.log(url)
-  // window.location.href = url
+   window.location.href = url
 
 })
 
