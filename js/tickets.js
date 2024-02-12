@@ -3,9 +3,23 @@ const containerSection = document.getElementById('container-notavailable')
 const buyTicket = document.getElementById('buyTicket')
 const containSelections = document.getElementById('your-selection')
 
+const loader = document.getElementById('container-loader')
+const priceMonitor = document.getElementById('price-monitor')
+
 // Al apenas cargar la pagina consume el servicio
-window.onload = () => {
+window.onload = async () => {
+  loader.style.display = 'flex'
+  const priceDolar = await getPrice()
+
+  const { error, price } = priceDolar;
   getBuyers()
+
+  if (!error) {
+       // renderizo la data
+       priceMonitor.innerText = price
+  }else{
+    priceMonitor.innerText = price
+  }
 }
 
 /**
@@ -14,22 +28,54 @@ window.onload = () => {
  */
 const ticketsSelection = []
 
+let count = 0;
+
 function addTicket(e) {
   const ticketItem = e.target.dataset.ticket
   ticketsSelection.push(ticketItem)
+
   const itemSelect = document.createElement('div')
   itemSelect.innerHTML = `
-  <div class="item-slected" data-ticket=${ticketItem} >
+  <ul class="item-slected" data-ticket=${ticketItem} >
        ${ticketItem}
-  </div>`;
+      <button class="btn-quit" onclick='clearTickect(${ticketItem},${count})'> Quitar </button>
+  </ul>`;
   containSelections.appendChild(itemSelect)
+
+  // Busco el boton con el del tablero con el mismo valor y lo oculto 
+  const arrayItems = document.getElementsByClassName('item-ticket')
+  for (let i = 0; i < arrayItems.length; i++) {
+    const item = arrayItems[i];
+    if (item.dataset.ticket === ticketItem) {
+      item.parentNode.style.display = 'none'
+    }
+    
+  }
+    count++
+}
+
+function clearTickect(value,position){
+    const itemTicket = value.toString()
+    // oculto el elemento que se pulso 
+    document.getElementsByClassName('item-slected')[position].style.display = 'none'
+    // Busco el boton con el del tablero con el mismo valor y lo muestro
+  const arrayItems = document.getElementsByClassName('item-ticket')
+  for (let i = 0; i < arrayItems.length; i++) {
+    const item = arrayItems[i];
+    if (item.dataset.ticket === itemTicket) {
+      item.parentNode.style.display = 'flex'
+    }
+    
+  }
+   
 }
 
 /**
  * Evento cuando se seleccionan los tickets y se quiere comprar
  */
 buyTicket.addEventListener('click', () => {
-
+  //coloco el contador en 0 Nuevamente
+  count = 0
   // Se obtiene el numero de Afiliado
   const queryStrings = window.location.search;
   //Creamos la instancia para los query strings
@@ -52,6 +98,8 @@ buyTicket.addEventListener('click', () => {
   }
    window.location.href = url
 
+  //console.log(ticketsSelection)
+
 })
 
 
@@ -71,6 +119,8 @@ async function getBuyers() {
   const data = await response.json()
   const cleanData = cleanTickets(data)
 
+  loader.style.display = 'none'
+
   cleanData.forEach(item => {
     const container = document.createElement("div");
 
@@ -86,6 +136,7 @@ async function getBuyers() {
     </div>`;
     containerSection.appendChild(container)
   });
+  
 
 
 }
@@ -124,6 +175,32 @@ function cleanTickets(data, init = 1, finish = 101) {
   }
   // Finalmente retorno los valores
   return capacity;
+}
+
+
+// API Publica que hace Scrapping con python a la pagina de Monitor Dolar 
+const getPrice = async () =>{
+  let url = `https://pydolarvenezuela-api.vercel.app/api/v1/dollar/unit/enparalelovzla`
+  const response = await fetch(url,{
+      headers: {
+          'Content-Type': 'application/json'
+        }
+  })
+  const dataPrice = await response.json()
+  try {
+      const {price} = dataPrice
+      return {
+          error:false,
+          price
+         
+      }
+  } catch (error) {
+      return {
+        error:true,
+        price:0
+      }
+  }
+
 }
 
 

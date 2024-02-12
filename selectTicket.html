@@ -6,12 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="loader.css">
 </head>
 
 <body>
+    <div class="container-loader" id="container-loader">
+        <h3>Cargando Info...</h3><br>
+        <div class="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
     <h1 class="title-index">Elige Tus Tickets</h1>
+    <h3> Cotizacion Dolar <p id="price-monitor"></p></h3>
     <button class="buy_button" id="buyTicket" >Comprar</button>
     <h3>Tu seleccion : </h3>
+    <h3>Monto: <p id="amount"></p></h3>
     <div class="your-selection" id="your-selection">
        
     </div>

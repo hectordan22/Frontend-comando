@@ -146,13 +146,23 @@ h1{
     background-color: #f6f1f1;
     color: black;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
     margin: 6px;
     padding: 3px;
+    width: 150px;
+    height: auto;
 }
 
 .your-selection{
     margin-top: 2em;
     margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.btn-quit{
+    height: min-content;
+    padding: 3px;
+    width: 50px;
 }
