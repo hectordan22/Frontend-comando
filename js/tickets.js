@@ -1,6 +1,7 @@
 // Contenedor donde se va a renderizar toda la data
 const containerSection = document.getElementById('container-notavailable')
 const buyTicket = document.getElementById('buyTicket')
+const containSelections = document.getElementById('your-selection')
 
 // Al apenas cargar la pagina consume el servicio
 window.onload = () => {
@@ -16,7 +17,12 @@ const ticketsSelection = []
 function addTicket(e) {
   const ticketItem = e.target.dataset.ticket
   ticketsSelection.push(ticketItem)
-
+  const itemSelect = document.createElement('div')
+  itemSelect.innerHTML = `
+  <div class="item-slected" data-ticket=${ticketItem} >
+       ${ticketItem}
+  </div>`;
+  containSelections.appendChild(itemSelect)
 }
 
 /**

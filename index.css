@@ -141,3 +141,18 @@ h1{
 #price-monitor{
     font-size: 20px;
 }
+
+.item-slected{
+    background-color: #f6f1f1;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px;
+    padding: 3px;
+}
+
+.your-selection{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
